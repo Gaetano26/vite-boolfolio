@@ -2,7 +2,7 @@
   <div class="container">
       <h1>{{ title }}</h1>
       <div class="row">
-          <div class="col" v-for="(post, index) in posts" :key="post.id">
+          <div class="col" v-for="(post, index) in posts" :key="index">
               <div class="card">
                   <div class="card-title">
                       <h3>{{ post.title}}</h3>
@@ -16,13 +16,13 @@
               </div>
           </div>
       </div>
-      <nav aria-label="Page navigation example">
+      <nav aria-label="Page navigation example mt-2">
           <ul class="pagination">
               <li class="page-item"><button class="page-link" :class="currentPage === 1 ? 'd-none': ''" @click="getData(currentPage - 1)">Previous</button></li>
               <li class="page-item" v-for="n in lastPage"><button class="page-link" @click="getData(n)">{{ n }}</button>
               </li>
 
-              <li class="page-item"><button class="page-link" :class="currentPage === 8 ? 'd-none': ''" @click="getData(currentPage + 1)">Next</button></li>
+              <li class="page-item"><button class="page-link" :class="currentPage === lastPage ? 'd-none': ''" @click="getData(currentPage + 1)">Next</button></li>
           </ul>
       </nav>
   </div>
@@ -34,7 +34,7 @@ export default {
   'name': 'App',
   data() {
       return {
-          title: 'Ciao',
+          title: 'Boolfolio',
           posts: [],
           apiUrl: 'http://127.0.0.1:8000/api',
           currentPage: 1,
@@ -48,15 +48,15 @@ export default {
                   'page': numPage
               }
           }).then((res) => {
-              //console.log(res);
               this.posts = res.data.results.data;
+              console.log(this.posts);
               this.currentPage = res.data.results.current_page;
               this.lastPage = res.data.results.last_page;
           })
       }
   },
   mounted() {
-      this.getData(1);
+      this.getData();
   }
 
 }
