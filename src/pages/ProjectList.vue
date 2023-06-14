@@ -1,5 +1,5 @@
 <template>
-    <div v-if="posts" class="container">
+    <div v-if="!loading" class="container">
         <h1>{{ title }}</h1>
         <div  class="row">
             <CardComponent  v-for="(post, index) in posts" :key="post.id" :post="post" />
@@ -16,6 +16,7 @@
     </div>
     <div v-else>
       <LoaderComponent />
+      <P>LOADING</P>
     </div>
   </template>
   
@@ -39,6 +40,7 @@ import LoaderComponent from '../components/LoaderComponent.vue';
             apiUrl: "http://127.0.0.1:8000/api",
             currentPage: 1,
             lastPage: null,
+            loading : true
         };
     },
     methods: {
@@ -53,6 +55,7 @@ import LoaderComponent from '../components/LoaderComponent.vue';
                 this.currentPage = res.data.results.current_page;
                 this.lastPage = res.data.results.last_page;
             });
+            this.loading = false;
         }
     },
     mounted() {
