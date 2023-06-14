@@ -6,3 +6,28 @@ $fa-font-path: '../webfonts';
 @import '@fortawesome/fontawesome-free/scss/solid.scss';
 
 @import 'bootstrap/scss/bootstrap';
+
+
+
+.card{
+
+    max-height: 400px;
+    .card-title{
+        h3{
+            min-height: 3em;
+        }
+    }
+
+
+
+     img {
+         height: 160px;
+         width: 100%;
+            }
+
+   .card-body{
+     h6 {
+        text-transform: capitalize;
+     }
+   }
+}
