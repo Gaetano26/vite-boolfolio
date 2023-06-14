@@ -1,5 +1,5 @@
 <template>
-      <div class="col" v-for="(post, index) in posts" :key="index">
+      <div class="col">
                 <div class="card">
                     <div class="card-title">
                         <h3>{{ post.title}}</h3>

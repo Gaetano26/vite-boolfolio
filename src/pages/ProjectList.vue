@@ -52,7 +52,7 @@ import CardComponent from '../components/CardComponent.vue';
     mounted() {
         this.getData();
     },
-    components: { CardComponent, CardComponent }
+   
 }
   </script>
   
