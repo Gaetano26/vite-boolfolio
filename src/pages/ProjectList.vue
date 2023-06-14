@@ -2,7 +2,7 @@
     <div class="container">
         <h1>{{ title }}</h1>
         <div class="row">
-           <CardComponent />
+            <CardComponent  v-for="(post, index) in posts" :key="post.id" :post="post" />
         </div>
         <nav aria-label="Page navigation example mt-2">
             <ul class="pagination">
@@ -19,7 +19,6 @@
   <script>
 
   import axios from 'axios';
-  
 import CardComponent from '../components/CardComponent.vue';
 
   export default {
