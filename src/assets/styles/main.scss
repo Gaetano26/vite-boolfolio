@@ -9,12 +9,22 @@ $fa-font-path: '../webfonts';
 
 
 
-.card{
 
+
+
+
+.card{
+    background: linear-gradient(to right,#0000FF ,white );
+    border: #0000FF;
     max-height: 400px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+    opacity: 0;
     .card-title{
         h3{
             min-height: 3em;
+            font-size: medium;
+            color: white
         }
     }
 
@@ -30,4 +40,10 @@ $fa-font-path: '../webfonts';
         text-transform: capitalize;
      }
    }
+
+}
+
+.card:hover {
+    box-shadow: 10px 10px 10px 10px black;
+    transform: scale(1.05);
 }

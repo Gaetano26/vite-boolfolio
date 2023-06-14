@@ -1,7 +1,7 @@
 <template>
-      <div class="col">
-                <div class="card">
-                    <div class="card-title">
+      <div class="col mt-5">
+                <div class="card show">
+                    <div class="card-title ps-3 mt-2">
                         <h3>{{ post.title}}</h3>
                     </div>
                     <div class="card-img-top">
@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h6>category: {{ post.category.name }}</h6>
                         
-                        <router-link :to="{name: 'project', params:{slug: post.slug}}" class="btn btn-primary">Dettagli</router-link>
+                        <router-link :to="{name: 'project', params:{slug: post.slug}}" class="btn btn-info">Dettagli</router-link>
                     </div>
                 </div>
             </div>
