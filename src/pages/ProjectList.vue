@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div v-if="posts" class="container">
         <h1>{{ title }}</h1>
-        <div class="row">
+        <div  class="row">
             <CardComponent  v-for="(post, index) in posts" :key="post.id" :post="post" />
         </div>
         <nav aria-label="Page navigation example mt-2">
@@ -14,17 +14,23 @@
             </ul>
         </nav>
     </div>
+    <div v-else>
+      <LoaderComponent />
+    </div>
   </template>
   
   <script>
 
   import axios from 'axios';
 import CardComponent from '../components/CardComponent.vue';
+import LoaderComponent from '../components/LoaderComponent.vue';
+
 
   export default {
     name: "ProjectList",
     components: {
-       CardComponent
+       CardComponent,
+       LoaderComponent
     },
     data() {
         return {
